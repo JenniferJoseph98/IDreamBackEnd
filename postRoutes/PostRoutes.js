@@ -17,7 +17,7 @@ PostRoutes.get("/", async (req, res) => {
 PostRoutes.post("/add", async (req, res) => {
   try {
     const postToAdded = await Post.create({
-      label: req.body.label,
+      label: req.body.label.toLowerCase(),
       url: req.body.url,
     });
     res.status(201).json({

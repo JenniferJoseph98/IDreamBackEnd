@@ -2,7 +2,7 @@ const Post = require("../models/postSchema");
 const PostRoutes = require("express").Router();
 PostRoutes.get("/", async (req, res) => {
   try {
-    const getAll = await Post.find();
+    const getAll = await Post.find().sort({ _id: "-1" });
     res.status(200).json({
       status: "Success",
       data: getAll,
